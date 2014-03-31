@@ -1,0 +1,13 @@
+<launch>
+  <node name="test_genmsg" pkg="roseus" type="test-genmsg.sh" />
+
+  <!-- check if tf is published -->
+  <param name="hztest_talker/topic" value="/talker1" />
+  <param name="hztest_talker/wait_time" value="300" />
+  <param name="hztest_talker/hz" value="10.0" />
+  <param name="hztest_talker/hzerror" value="5.0" />
+  <param name="hztest_talker/test_duration" value="5.0" />
+  <test test-name="hztest_talker" pkg="rostest" type="hztest" name="hztest_talker" 
+        time-limit="300" />
+
+</launch>
