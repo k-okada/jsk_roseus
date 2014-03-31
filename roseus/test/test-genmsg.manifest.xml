@@ -1,0 +1,12 @@
+<package>
+  <name>roseus_test_genmsg</name>
+  <version>0.0.1</version>
+  <description> genmsg test for roseus</description>
+  <maintainer email="k-okada@jsk.t.u-tokyo.ac.jp">Kei Okada</maintainer>
+
+  <license>BSD</license>
+
+  <depend package="roseus"/>
+  <depend package="roscpp"/>
+
+</package>
