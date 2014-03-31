@@ -35,7 +35,7 @@ if(NOT COMMAND rosbuild_find_ros_package) ## catkin
   endif()
 
   message("[roseus.camke] euslisp_PACKAGE_PATH = ${euslisp_PACKAGE_PATH}")
-  message("[roseus.camke]  euseus_PACKAGE_PATH = ${roseus_PACKAGE_PATH}")
+  message("[roseus.camke]  roseus_PACKAGE_PATH = ${roseus_PACKAGE_PATH}")
   set(roseus_INSTALL_DIR ${roshomedir}/roseus/$ENV{ROS_DISTRO})
   set(ROS_PACKAGE_PATH ${euslisp_PACKAGE_PATH}:${roseus_PACKAGE_PATH}:${PROJECT_SOURCE_DIR}:$ENV{ROS_PACKAGE_PATH})
 
@@ -207,7 +207,6 @@ if(NOT COMMAND rosbuild_find_ros_package) ## catkin
     endif()
   endforeach()
   set(ALL_GEN_OUTPUT_FILES_eus ${_ALL_GEN_OUTPUT_FILES_eus})
-
   # #
   return()
 endif()
