@@ -18,7 +18,7 @@ catkin_package(
     CATKIN_DEPENDS message_runtime
 )
 
-
+message("CATKIN_MESSAGE_GENERATORS => ${CATKIN_MESSAGE_GENERATORS}")
 add_executable(${PROJECT_NAME} ${PROJECT_NAME}.cpp)
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})
 add_dependencies(${PROJECT_NAME} ${PROJECT_NAME}_generate_messages_cpp)
