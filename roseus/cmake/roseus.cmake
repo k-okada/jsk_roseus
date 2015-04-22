@@ -102,3 +102,15 @@ if(NOT "${message_generation_requires}" MATCHES "geneus")
   generate_all_roseus_messages()
 endif()
 
+# utility to make doc
+macro(generate_eusdoc _lispfile)
+  get_filename_component(_name ${_lispfile} NAME_WE)
+  set(_lisppath "${CMAKE_CURRENT_SOURCE_DIR}/${_lispfile}")
+  set(_mdfile "${_name}.md")
+  set(_generate_eusdoc_command "\\\"(setq lisp::*error-handler* 'exit)\\\" \\\"(load \\\\\\\"${_lisppath}\\\\\\\")\\\" \\\"(make-document \\\\\\\"${_lisppath}\\\\\\\" \\\\\\\"${_mdfile}\\\\\\\")\\\" \\\"(exit)\\\" ")
+  separate_arguments(_generate_eusdoc_command_list WINDOWS_COMMAND "${_generate_eusdoc_command}")
+  add_custom_command(OUTPUT ${_mdfile}
+    COMMAND roseus $ENV{EUSDIR}/lib/llib/documentation.l ${_generate_eusdoc_command_list}
+    DEPENDS ${_lispfile})
+  add_custom_target(${PROJECT_NAME}_${_name}_generate_eusdoc ALL DEPENDS ${_mdfile})
+endmacro()
