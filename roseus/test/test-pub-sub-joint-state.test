@@ -1,0 +1,4 @@
+<launch>
+  <node name="pub_joint_state" pkg="roseus" type="roseus" args="$(find roseus)/test/test-pub-joint-state.l" />
+  <test test-name="sub_joint_state" pkg="roseus" type="roseus" args="$(find roseus)/test/test-sub-joint-state.l" />
+</launch>
