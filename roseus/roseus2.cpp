@@ -67,7 +67,7 @@
 #include <rcl_action/rcl_action.h>
 #include <rclcpp_action/rclcpp_action.hpp>
 #include <action_msgs/msg/goal_status.hpp>
-#include <ament_index_cpp/get_package_share_directory.hpp>
+#include <ament_index_cpp/get_package_share_path.hpp>
 #include <rosidl_typesupport_cpp/message_type_support.hpp>
 #include <rosidl_typesupport_introspection_cpp/service_introspection.hpp>
 #include <rosidl_typesupport_introspection_cpp/message_introspection.hpp>
@@ -1538,7 +1538,7 @@ pointer ROSEUS_ROSPACK_FIND(register context* ctx, int n, pointer* argv) {
   else error(E_NOSTRING);
 
   try {
-    string path = ament_index_cpp::get_package_share_directory(pkg);
+    string path = ament_index_cpp::get_package_share_path(pkg).string();
     return makestring((char*)path.c_str(), path.length());
   } catch (const std::exception& e) {
     return (NIL);
